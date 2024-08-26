@@ -11,7 +11,6 @@ public class RetryScript : MonoBehaviour
     public void ShowGameOverScreen(int score)
     {
         scoreText.text = "" + score.ToString();
-
         gameOverScreen.SetActive(true);
     }
     public void RetryButtonPressed()

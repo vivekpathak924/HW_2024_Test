@@ -489,7 +489,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1181592993}
         m_TargetAssemblyTypeName: StartScript, Assembly-CSharp
-        m_MethodName: RetryButtonPressed
+        m_MethodName: StartButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

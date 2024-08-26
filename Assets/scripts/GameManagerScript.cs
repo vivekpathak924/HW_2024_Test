@@ -9,6 +9,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject doofusPlayer;
     public Transform pulpitParent;
 
+    [SerializeField]private AudioSource scoreIncreasedFX;
+    [SerializeField]private AudioSource musicGame;
     public RetryScript scriptRetry;
     public UIManagerScript uiManager;
 
@@ -24,6 +26,7 @@ public class GameManagerScript : MonoBehaviour
     
     void Start()
     {
+        musicGame.PlayDelayed(1);
         LoadGameSettings();
         InitializeFirstPulpit();
         StartCoroutine(ManagePulpits());
@@ -194,6 +197,10 @@ public class GameManagerScript : MonoBehaviour
         score+=1;
         uiManager.UpdateScore(score);
 
+        if(scoreIncreasedFX!=null){
+            scoreIncreasedFX.Play();
+        }
+
         if (score >= 50)
         {
             GameOver();
@@ -203,6 +210,7 @@ public class GameManagerScript : MonoBehaviour
     public void GameOver()
     {
         int CurrScore = score;
+        musicGame.Stop();
         scriptRetry.ShowGameOverScreen(CurrScore);
     }
 }
