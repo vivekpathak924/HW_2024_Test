@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnDestroyPulpit : MonoBehaviour
 {
@@ -9,17 +10,17 @@ public class SpawnDestroyPulpit : MonoBehaviour
     void Start(){
         lastpulpit = null;
     }
-    public void Initialize(float time)
-    {
-        destroyTime = time;
-        Invoke(nameof(DestroyPulpit), destroyTime);
-    }
+    // public void Initialize(float time)
+    // {
+    //     destroyTime = time;
+    //     Invoke(nameof(DestroyPulpit), destroyTime);
+        
+    // }
 
-    void DestroyPulpit()
-    {
-        GameObject.FindObjectOfType<GameManagerScript>().SpawnPulpit();
-        Destroy(gameObject);
-    }
+    // void DestroyPulpit()
+    // {
+    //     FindObjectOfType<GameManagerScript>().SpawnPulpit();
+    // }
 
     void OnTriggerEnter(Collider col)
     {
@@ -30,6 +31,7 @@ public class SpawnDestroyPulpit : MonoBehaviour
                 gameManager.UpdateScore();
                 lastpulpit = col.gameObject;
             }
+            
         }
     }
 }

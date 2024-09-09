@@ -15,7 +15,6 @@ public class RetryScript : MonoBehaviour
     }
     public void RetryButtonPressed()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

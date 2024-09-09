@@ -41,7 +41,6 @@ public class GameManagerScript : MonoBehaviour
     }
     void InitializeFirstPulpit()
     {
-
         currentPulpit = GameObject.FindWithTag("Pulpit");
         if(currentPulpit!=null){
             lastPulpitPosition = currentPulpit.transform.position;
@@ -66,15 +65,6 @@ public class GameManagerScript : MonoBehaviour
 
     public void SpawnPulpit()
     {
-        // do
-        // {
-        //     // spawnPosition = lastPulpitPosition + new Vector3(Random.Range(-1, 2) * 9, 0, Random.Range(-1, 2) * 9);
-        //     int xDirection = Random.Range(0, 2) * 9;  // Either 0 or 9
-        //     int zDirection = (xDirection == 0 ? 1 : 0) * Random.Range(-1, 2) * 9;
-
-        //     spawnPosition = lastPulpitPosition + new Vector3(xDirection, 0, zDirection);
-        // } while (spawnPosition == lastPulpitPosition);
-
         Vector3 spawnPosition = lastPulpitPosition;
         if(rndCountDir == 0){
             direction = Random.Range(0, 4); // 0 = North, 1 = East, 2 = South, 3 = West
@@ -166,8 +156,8 @@ public class GameManagerScript : MonoBehaviour
             int seconds = Mathf.FloorToInt(timeRemaining);
             int milliseconds = Mathf.FloorToInt((timeRemaining - seconds) * 100);
 
-            secondsText.text = $"{seconds:D1}:";
-            milliText.text = $"{milliseconds:D2}";
+            secondsText.text = seconds.ToString() + ":";
+            milliText.text = milliseconds.ToString();
 
             yield return null;
         }
